@@ -7,54 +7,35 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalyticsXamarin.Common", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalyticsXamarin.iOS", "LocalyticsXamarin.iOS\LocalyticsXamarin.iOS.csproj", "{5087AEA1-F7C9-4EBB-96EA-A9CA3BB6EFEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalyticsXamarin.Android", "LocalyticsXamarin.Android\LocalyticsXamarin.Android.csproj", "{ABFD3B19-4090-4B43-B5AD-5E7A9717BE59}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "LocalyticsXamarin.Android", "LocalyticsXamarin.Android\LocalyticsXamarin.Android.csproj", "{8E054EA8-D527-4B19-B645-97EBA524987F}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "LocalyticsSample.iOS", "iOS\LocalyticsSample.iOS.csproj", "{4F31C42C-4BDC-4A8B-915C-E2FC319336A7}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "LocalyticsSample.iOS", "iOS\LocalyticsSample.iOS.csproj", "{75B22D70-8C10-42D1-B1AA-D0938D0951C4}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "LocalyticsSample.Android", "Android\LocalyticsSample.Android.csproj", "{B4B9A555-F79E-46BC-8586-E49B16374DFC}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "LocalyticsSample.Android", "Android\LocalyticsSample.Android.csproj", "{B349FE3F-8CD9-438E-B509-33ECAB5FD0C0}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Localytics.NuGet", "LocalyticsXamarin.NuGet\Localytics.NuGet.nuproj", "{C878872A-DB7A-490C-BF8A-954280332B28}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Localytics.NuGet", "LocalyticsXamarin.NuGet\Localytics.NuGet.nuproj", "{D35B7AE3-D5A6-456D-B627-518749B9DD2E}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		LocalyticsXamarin.Shared\LocalyticsXamarin.Shared.projitems*{29c2975e-c5c9-4f1e-84ee-c36a81b940ba}*SharedItemsImports = 13
-		LocalyticsXamarin.Shared\LocalyticsXamarin.Shared.projitems*{5087aea1-f7c9-4ebb-96ea-a9ca3bb6efee}*SharedItemsImports = 4
-		LocalyticsXamarin.Shared\LocalyticsXamarin.Shared.projitems*{8d4d1584-55b7-4e32-9373-9d1da7d9a209}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|iPhone = Debug|iPhone
-		Debug|iPhoneSimulator = Debug|iPhoneSimulator
 		Release|Any CPU = Release|Any CPU
-		Release|iPhone = Release|iPhone
-		Release|iPhoneSimulator = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BF2D2C42-B115-4B4B-A27E-B20DD0D7E207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF2D2C42-B115-4B4B-A27E-B20DD0D7E207}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF2D2C42-B115-4B4B-A27E-B20DD0D7E207}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF2D2C42-B115-4B4B-A27E-B20DD0D7E207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2D2C42-B115-4B4B-A27E-B20DD0D7E207}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2D2C42-B115-4B4B-A27E-B20DD0D7E207}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{5087AEA1-F7C9-4EBB-96EA-A9CA3BB6EFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5087AEA1-F7C9-4EBB-96EA-A9CA3BB6EFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5087AEA1-F7C9-4EBB-96EA-A9CA3BB6EFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5087AEA1-F7C9-4EBB-96EA-A9CA3BB6EFEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABFD3B19-4090-4B43-B5AD-5E7A9717BE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABFD3B19-4090-4B43-B5AD-5E7A9717BE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABFD3B19-4090-4B43-B5AD-5E7A9717BE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABFD3B19-4090-4B43-B5AD-5E7A9717BE59}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F26ED7DC-4C42-4871-BAB9-C47CC9A999EF}
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		Policies = $0
-		$0.DotNetNamingPolicy = $1
-		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
-		$0.StandardHeader = $2
-		$0.VersionControlPolicy = $3
-		outputpath = ../build/bin
+		{5087AEA1-F7C9-4EBB-96EA-A9CA3BB6EFEE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5087AEA1-F7C9-4EBB-96EA-A9CA3BB6EFEE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8E054EA8-D527-4B19-B645-97EBA524987F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E054EA8-D527-4B19-B645-97EBA524987F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B22D70-8C10-42D1-B1AA-D0938D0951C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B22D70-8C10-42D1-B1AA-D0938D0951C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B349FE3F-8CD9-438E-B509-33ECAB5FD0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B349FE3F-8CD9-438E-B509-33ECAB5FD0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35B7AE3-D5A6-456D-B627-518749B9DD2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35B7AE3-D5A6-456D-B627-518749B9DD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 EndGlobal

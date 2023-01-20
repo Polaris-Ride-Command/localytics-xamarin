@@ -756,8 +756,7 @@ namespace LocalyticsXamarin.Shared
         public void TriggerPlacesNotificationForCampaignId(long campaignId, string regionId)
         {
 #if IOS
-            //Localytics.TriggerPlacesNotification((nint)campaignId, regionId);
-            Localytics.TriggerPlacesNotification((int)campaignId, regionId);
+            Localytics.TriggerPlacesNotification((nint)campaignId, regionId);
 #else
             Localytics.TriggerPlacesNotification(campaignId, regionId);
 #endif
@@ -919,8 +918,7 @@ namespace LocalyticsXamarin.Shared
         public void IncrementProfileAttribute(Int64 value, string attribute, XFLLProfileScope scope = XFLLProfileScope.Application)
         {
 #if IOS
-            //Localytics.IncrementProfileAttribute((native int)value, attribute, Utils.ToLLProfileScope(scope));
-            Localytics.IncrementProfileAttribute((int)value, attribute, Utils.ToLLProfileScope(scope));
+            Localytics.IncrementProfileAttribute((nint)value, attribute, Utils.ToLLProfileScope(scope));
 #else
             Localytics.IncrementProfileAttribute(attribute, value, Utils.ToLLProfileScope(scope));
 #endif
@@ -929,8 +927,7 @@ namespace LocalyticsXamarin.Shared
         public void DecrementProfileAttribute(Int64 value, string attribute, XFLLProfileScope scope = XFLLProfileScope.Application)
         {
 #if IOS
-            //Localytics.DecrementProfileAttribute((System.nint)value, attribute, Utils.ToLLProfileScope(scope));
-            Localytics.DecrementProfileAttribute((int)value, attribute, Utils.ToLLProfileScope(scope));
+            Localytics.DecrementProfileAttribute((nint)value, attribute, Utils.ToLLProfileScope(scope));
 #else
             Localytics.DecrementProfileAttribute(attribute, value, Utils.ToLLProfileScope(scope));
 #endif
