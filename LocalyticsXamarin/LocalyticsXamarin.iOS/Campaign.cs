@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using LocalyticsXamarin.Common;
-#if __IOS__
-using NativeInboxCampaign = LocalyticsXamarin.IOS.LLInboxCampaign;
-using NativeInAppCampaign = LocalyticsXamarin.IOS.LLInAppCampaign;
-using NativePlacesCampaign = LocalyticsXamarin.IOS.LLPlacesCampaign;
-using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.IOS.LLInAppMessageDismissButtonLocation;
-#else
-using NativeInboxCampaign = LocalyticsXamarin.Android.InboxCampaign;
-using NativeInAppCampaign = LocalyticsXamarin.Android.InAppCampaign;
-using NativePlacesCampaign = LocalyticsXamarin.Android.PlacesCampaign;
-using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.Android.Localytics.InAppMessageDismissButtonLocation;
+
+#if IOS
+    using NativeInboxCampaign = LocalyticsXamarin.IOS.LLInboxCampaign;
+    using NativeInAppCampaign = LocalyticsXamarin.IOS.LLInAppCampaign;
+    using NativePlacesCampaign = LocalyticsXamarin.IOS.LLPlacesCampaign;
+    using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.IOS.LLInAppMessageDismissButtonLocation;
+#elif ANDROID
+    //using NativeInboxCampaign = LocalyticsXamarin.Android.InboxCampaign;
+    //using NativeInAppCampaign = LocalyticsXamarin.Android.InAppCampaign;
+    //using NativePlacesCampaign = LocalyticsXamarin.Android.PlacesCampaign;
+    //using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.Android.Localytics.InAppMessageDismissButtonLocation;
 #endif
+
 namespace LocalyticsXamarin.Shared
 {
 
@@ -60,7 +62,7 @@ namespace LocalyticsXamarin.Shared
         {
             return campaign;
         }
-#if __IOS__
+#if IOS
         public bool Read { get => campaign.Read; set => campaign.Read = value; }
 
         public string TitleText => campaign.TitleText;
@@ -162,28 +164,28 @@ namespace LocalyticsXamarin.Shared
         }
 
         public float AspectRatio =>
-#if __IOS__
+#if IOS
         (float)campaign.AspectRatio;
 #else
         campaign.AspectRatio;
 #endif
 
         public float Offset =>
-#if __IOS__
+#if IOS
         (float)campaign.Offset;
 #else
         campaign.Offset;
 #endif
 
         public float BackgroundAlpha =>
-#if __IOS__
+#if IOS
         (float)campaign.BackgroundAlpha;
 #else
         campaign.BackgroundAlpha;
 #endif
 
         public bool IsResponsive =>
-#if __IOS__
+#if IOS
         campaign.IsResponsive;
 #else
         true;
@@ -196,7 +198,7 @@ namespace LocalyticsXamarin.Shared
         public string EventName => campaign.EventName;
 
         public string CreativeFilePath =>
-#if __IOS__
+#if IOS
             campaign.CreativeFilePath;
 #else
             campaign.CreativeFilePath.ToString();
@@ -220,7 +222,7 @@ namespace LocalyticsXamarin.Shared
                           "\n\t Message:{2}" +
                           "\n\t SoundFile:{3}" +
                           "\n\t AttachmentUrl:{4}" +
-#if __IOS__
+#if IOS
                          "\n\t AttachmentType:{5}" +
                           "\n\t Category:{6}"
 #else
@@ -231,7 +233,7 @@ namespace LocalyticsXamarin.Shared
                                  , this.Message ?? ""
                                  , this.SoundFilename ?? ""
                                  , this.AttachmentURL ?? ""
-#if __IOS__
+#if IOS
                                  , this.AttachmentType ?? ""
                                  , this.Category
 #else
@@ -258,7 +260,7 @@ namespace LocalyticsXamarin.Shared
 
         public string Message => campaign.Message;
 
-#if __IOS__
+#if IOS
         public string AttachmentType => campaign.AttachmentType;
 
         public string Category => campaign.Category;

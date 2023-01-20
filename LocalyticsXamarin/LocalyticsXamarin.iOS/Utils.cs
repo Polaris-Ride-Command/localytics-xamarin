@@ -1,17 +1,19 @@
 ﻿using System;
 using LocalyticsXamarin.Common;
-#if __IOS__
-using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.IOS.LLInAppMessageDismissButtonLocation;
-using NativeProfileScope = LocalyticsXamarin.IOS.LLProfileScope;
-using NativeImpressionType = LocalyticsXamarin.IOS.LLImpressionType;
-using NativeBaseCampaign = LocalyticsXamarin.IOS.LLCampaignBase;
-#else
-using LocalyticsXamarin.Android;
-using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.Android.Localytics.InAppMessageDismissButtonLocation;
-using NativeProfileScope = LocalyticsXamarin.Android.Localytics.ProfileScope;
-using NativeImpressionType = LocalyticsXamarin.Android.Localytics.ImpressionType;
-using NativeBaseCampaign = LocalyticsXamarin.Android.Campaign;
+
+#if IOS
+	using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.IOS.LLInAppMessageDismissButtonLocation;
+	using NativeProfileScope = LocalyticsXamarin.IOS.LLProfileScope;
+	using NativeImpressionType = LocalyticsXamarin.IOS.LLImpressionType;
+	using NativeBaseCampaign = LocalyticsXamarin.IOS.LLCampaignBase;
+#elif ANDROID
+	//using LocalyticsXamarin.Android;
+	//using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.Android.Localytics.InAppMessageDismissButtonLocation;
+	//using NativeProfileScope = LocalyticsXamarin.Android.Localytics.ProfileScope;
+	//using NativeImpressionType = LocalyticsXamarin.Android.Localytics.ImpressionType;
+	//using NativeBaseCampaign = LocalyticsXamarin.Android.Campaign;
 #endif
+
 namespace LocalyticsXamarin.Shared
 {
 	public static class Utils

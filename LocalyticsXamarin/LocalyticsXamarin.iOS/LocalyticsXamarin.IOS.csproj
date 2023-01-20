@@ -1,4 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net7.0-ios</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!--<GenerateAssemblyInfo>false</GenerateAssemblyInfo>  Turn off automatic assembly info generation and use values from the AssemblyInfo.cs file -->
+    <IsBindingProject>true</IsBindingProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;NET;NET7_0;NETCOREAPP</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\..\Localytics-iOS-Latest\Localytics.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="LocalyticsXamarin.Common" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="LocalyticsXamarin.Common">
+      <HintPath>..\LocalyticsXamarin.Common\bin\Debug\netstandard2.1\LocalyticsXamarin.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project><!--<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\LocalyticsXamarin.Shared\LocalyticsXamarin.Shared.projitems" Label="Shared" Condition="Exists('..\LocalyticsXamarin.Shared\LocalyticsXamarin.Shared.projitems')" />
   <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props')" />
@@ -91,4 +127,4 @@
   </ItemGroup>
   <Import Project="..\packages\Xamarin.Forms.3.0.0.446417\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.0.0.446417\build\netstandard1.0\Xamarin.Forms.targets')" />
   <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" />
-</Project>
+</Project>-->
