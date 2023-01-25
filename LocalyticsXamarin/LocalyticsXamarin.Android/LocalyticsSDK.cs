@@ -1,39 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 #if IOS
-    using Foundation;
-    using CoreLocation;
-    using UIKit;
-    using LocalyticsXamarin.IOS;
+    //using Foundation;
+    //using CoreLocation;
+    //using UIKit;
+    //using LocalyticsXamarin.IOS;
 #elif ANDROID
-    //using Java.Util;
-    //using Android.Runtime;
-    //using LocalyticsXamarin.Android;
+    using LocalyticsXamarin.Android;
 #endif
 
 using LocalyticsXamarin.Common;
 
-
 #if IOS
-    using NativeNumber = Foundation.NSNumber;
-    using NativeInAppCampaign = LocalyticsXamarin.IOS.LLInAppCampaign;
-    using NativeInboxCampaign = LocalyticsXamarin.IOS.LLInboxCampaign;
-    using NativeImpressionType = LocalyticsXamarin.IOS.LLImpressionType;
-    using NativePlacesCampaign = LocalyticsXamarin.IOS.LLPlacesCampaign;
-    using NativeInAppConfiguration = LocalyticsXamarin.IOS.LLInAppConfiguration;
-    using NativeLocalyticsDidUpdateMonitoredGeofencesEventArgs = LocalyticsXamarin.IOS.LocalyticsDidUpdateMonitoredGeofencesEventArgs;
+    //using NativeNumber = Foundation.NSNumber;
+    //using NativeInAppCampaign = LocalyticsXamarin.IOS.LLInAppCampaign;
+    //using NativeInboxCampaign = LocalyticsXamarin.IOS.LLInboxCampaign;
+    //using NativeImpressionType = LocalyticsXamarin.IOS.LLImpressionType;
+    //using NativePlacesCampaign = LocalyticsXamarin.IOS.LLPlacesCampaign;
+    //using NativeInAppConfiguration = LocalyticsXamarin.IOS.LLInAppConfiguration;
+    //using NativeLocalyticsDidUpdateMonitoredGeofencesEventArgs = LocalyticsXamarin.IOS.LocalyticsDidUpdateMonitoredGeofencesEventArgs;
 #elif ANDROID
-    //using NativeNumber = Java.Lang.Long;
-    //using NativeInAppCampaign = LocalyticsXamarin.Android.InAppCampaign;
-    //using NativeInboxCampaign = LocalyticsXamarin.Android.InboxCampaign;
-    //using NativeImpressionType = LocalyticsXamarin.Android.Localytics.ImpressionType;
-    //using NativePlacesCampaign = LocalyticsXamarin.Android.PlacesCampaign;
-    //using NativeInAppConfiguration = LocalyticsXamarin.Android.InAppConfiguration;
-    //using NativeLocalyticsDidUpdateLocationEventArgs = LocalyticsXamarin.Android.LocalyticsDidUpdateLocationEventArgs;
-    //using NativeLocalyticsDidUpdateMonitoredGeofencesEventArgs = LocalyticsXamarin.Android.LocalyticsDidUpdateMonitoredGeofencesEventArgs;
+    using NativeNumber = Java.Lang.Long;
+    using NativeInAppCampaign = LocalyticsXamarin.Android.InAppCampaign;
+    using NativeInboxCampaign = LocalyticsXamarin.Android.InboxCampaign;
+    using NativeImpressionType = LocalyticsXamarin.Android.Localytics.ImpressionType;
+    using NativePlacesCampaign = LocalyticsXamarin.Android.PlacesCampaign;
+    using NativeInAppConfiguration = LocalyticsXamarin.Android.InAppConfiguration;
 #endif
 
 
@@ -411,8 +403,8 @@ namespace LocalyticsXamarin.Shared
             get => Localytics.LibraryVersion;
         }
 
-       public string LocalAuthenticationToken
-       {
+        public string LocalAuthenticationToken
+        {
 #if IOS
             get => "";
 #else
@@ -942,7 +934,7 @@ namespace LocalyticsXamarin.Shared
 #endif
         }
 
-#region Platform specific code
+        #region Platform specific code
 #if IOS
         public void AddProfileAttributes(string attribute, LLProfileScope scope, params NSDate[] values)
         {
@@ -955,6 +947,6 @@ namespace LocalyticsXamarin.Shared
         }
 
 #endif
-#endregion
+        #endregion
     }
 }

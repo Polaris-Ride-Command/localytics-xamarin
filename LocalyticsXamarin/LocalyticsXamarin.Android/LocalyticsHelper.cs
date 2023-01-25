@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using LocalyticsXamarin.Shared;
-using LocalyticsXamarin.Common;
-using NativeInAppCampaign = LocalyticsXamarin.Android.InAppCampaign;
-using NativeInboxCampaign = LocalyticsXamarin.Android.InboxCampaign;
-using NativeImpressionType = LocalyticsXamarin.Android.Localytics.ImpressionType;
-using NativePlacesCampaign = LocalyticsXamarin.Android.PlacesCampaign;
-using NativePushCampaign = LocalyticsXamarin.Android.PushCampaign;
-using Android.Runtime;
-
-namespace LocalyticsXamarin.Android
+﻿namespace LocalyticsXamarin.Android
 {
 	internal sealed partial class IInboxRefreshListenerImplementor
 	{

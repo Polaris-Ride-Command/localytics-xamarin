@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Diagnostics;
-using Foundation;
-
-using NativeInboxCampaign = LocalyticsXamarin.IOS.LLInboxCampaign;
-using NativeInAppCampaign = LocalyticsXamarin.IOS.LLInAppCampaign;
-using NativePlacesCampaign = LocalyticsXamarin.IOS.LLPlacesCampaign;
-using NativeInAppMessageDismissButtonLocation = LocalyticsXamarin.IOS.LLInAppMessageDismissButtonLocation;
-using NativeBaseCampaign = LocalyticsXamarin.IOS.LLCampaignBase;
-
 using LocalyticsXamarin.Common;
 using LocalyticsXamarin.Shared;
+using NativeBaseCampaign = LocalyticsXamarin.IOS.LLCampaignBase;
+using NativeInboxCampaign = LocalyticsXamarin.IOS.LLInboxCampaign;
 
 namespace LocalyticsXamarin.IOS
 {
