@@ -1,53 +1,47 @@
 ﻿using System;
-
 using Foundation;
 using UIKit;
-
 using LocalyticsSample.Shared;
 using LocalyticsXamarin.IOS;
 using System.Diagnostics;
+using MapKit;
 
 namespace LocalyticsSample.IOS
 {
-    
 	[Register ("AppDelegate")]
-	public class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
-	{
-		public override bool FinishedLaunching (UIApplication uiApplication, NSDictionary launchOptions)
-		{
-			global::Xamarin.Forms.Forms.Init();
+	public class AppDelegate : MauiUIApplicationDelegate
+    {
+        private const string DevORViOSKey = "4f2b387acc0e8a7f80ae160-e3aa65be-e1fd-11e5-7ff8-0086bc74ca0f";
 
-            // Code for starting up the Xamarin Test Cloud Agent
-#if ENABLE_TEST_CLOUD
-            Xamarin.Calabash.Start();
-#endif
+        protected override MauiApp CreateMauiApp() => iOS.MauiProgram.CreateMauiApp();
 
-            LoadApplication(new App());
-
-			// Localytics Integrate
-			Localytics.LoggingEnabled = true;
-            Localytics.Integrate ("APPKEY", launchOptions ?? new NSDictionary());
-
-			// Register for remote notifications
-				var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
-					UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
-					new NSSet ());
-
-				UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
-				UIApplication.SharedApplication.RegisterForRemoteNotifications ();
-
-			return base.FinishedLaunching (uiApplication, launchOptions);
-		}
-
-		public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-			Console.WriteLine("Push Token Registered " + deviceToken.DebugDescription);
-			Localytics.SetPushToken(deviceToken);
+            // Localytics Integrate
+            Localytics.LoggingEnabled = true;
+            Localytics.Integrate(DevORViOSKey, launchOptions ?? new NSDictionary());
+
+            // Register for remote notifications
+            var pushSettings = UIUserNotificationSettings.GetSettingsForTypes(
+                UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+                new NSSet());
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(pushSettings);
+            UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+            return base.FinishedLaunching(application, launchOptions);
         }
 
-		public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
-		{
-			Console.WriteLine("Failed to Register for Notifications " + error);
-		}      
-	}
+        [Export("application:didRegisterForRemoteNotificationsWithDeviceToken:")]
+        public void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        {
+            Console.WriteLine("Push Token Registered " + deviceToken.DebugDescription);
+            Localytics.SetPushToken(deviceToken);
+        }
+
+        [Export("application:didFailToRegisterForRemoteNotificationsWithError:")]
+        public void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        {
+            Console.WriteLine("Failed to Register for Notifications " + error);
+        }
+    }
 }

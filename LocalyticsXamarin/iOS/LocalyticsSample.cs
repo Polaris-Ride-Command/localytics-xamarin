@@ -1,5 +1,4 @@
-﻿using Xamarin.Forms;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using LocalyticsXamarin.Common;
 using System.Threading.Tasks;
@@ -27,12 +26,13 @@ namespace LocalyticsSample.Shared
             }
         }
 
-        public App()
+        public App(IServiceProvider provider)
         {
             // The root page of your application
-            MainPage = new NavigationPage(new LandingPage());
-            localytics = DependencyService.Get<ILocalytics>();
-            platform = DependencyService.Get<IPlatform>();
+            MainPage = new NavigationPage(new LandingPage(provider));
+
+            platform = provider.GetService<IPlatform>();
+            localytics = provider.GetService<ILocalytics>();
         }
 
         protected override void OnStart()

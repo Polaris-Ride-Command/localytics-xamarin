@@ -3,7 +3,6 @@
 using UIKit;
 using LocalyticsXamarin.IOS;
 
-[assembly: Xamarin.Forms.Dependency(typeof(LocalyticsSample.Shared.LocalyticsXamarinForms))]
 namespace LocalyticsSample.Shared
 {
     public class LocalyticsXamarinFormsIOS : LocalyticsXamarinForms

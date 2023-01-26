@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Threading;
-
-using Xamarin.Forms;
-using LocalyticsXamarin.Common;
+﻿using LocalyticsXamarin.Common;
 
 namespace LocalyticsSample.Shared
 {
-	public partial class LandingPage : ContentPage
+    public partial class LandingPage : ContentPage
 	{
-		void LoggingToggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		void LoggingToggled(object sender, ToggledEventArgs e)
 		{
 			Task.Run(() =>
 			{
@@ -19,13 +13,13 @@ namespace LocalyticsSample.Shared
 			});
 		}
 
-		void OptOutToggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		void OptOutToggled(object sender, ToggledEventArgs e)
 		{
 			App.localytics.OptedOut = ((Switch)sender).IsToggled;
 			RefreshBackgroundProperties();
 		}
 
-		void TestModeToggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		void TestModeToggled(object sender, ToggledEventArgs e)
 		{
 			Task.Run(() =>
 			{
@@ -35,17 +29,17 @@ namespace LocalyticsSample.Shared
 			});
 		}
 
-		void PlacesDisplayToggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		void PlacesDisplayToggled(object sender, ToggledEventArgs e)
 		{
 			App.platform.SetPlacesShouldDisplay(((Switch)sender).IsToggled);
 		}
 
-		void InappDisplayToggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		void InappDisplayToggled(object sender, ToggledEventArgs e)
 		{
 			App.platform.SetInAppShouldDisplay(((Switch)sender).IsToggled);
 		}
 
-		void DeepLinkToggled(object sender, Xamarin.Forms.ToggledEventArgs e)
+		void DeepLinkToggled(object sender, ToggledEventArgs e)
 		{
 			App.platform.SetShouldDeeplink(((Switch)sender).IsToggled);
 		}
@@ -111,11 +105,11 @@ namespace LocalyticsSample.Shared
 		{
 			localytics.TriggerInAppMessage(this.triggerName.Text);
 		}
-
-		public LandingPage()
+        
+        public LandingPage(IServiceProvider provider)
 		{
 			InitializeComponent();
-			localytics = DependencyService.Get<ILocalytics>();
+			localytics = provider.GetService<ILocalytics>();
 		}
 
 		protected override void OnAppearing()

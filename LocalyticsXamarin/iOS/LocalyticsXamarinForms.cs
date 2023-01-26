@@ -4,7 +4,6 @@ using LocalyticsXamarin.Common;
 using LocalyticsXamarin.Shared;
 
 
-[assembly: Xamarin.Forms.Dependency(typeof(LocalyticsSample.Shared.LocalyticsXamarinForms))]
 namespace LocalyticsSample.Shared
 {
     public class LocalyticsXamarinForms : LocalyticsSDK, ILocalytics, IPlatform
