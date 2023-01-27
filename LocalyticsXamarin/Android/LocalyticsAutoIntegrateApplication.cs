@@ -2,16 +2,17 @@
 using Android.App;
 using Android.Runtime;
 
-using LocalyticsXamarin.Android;
-
 namespace LocalyticsSample.Android
 {
     [Application]
-    public class LocalyticsAutoIntegrateApplication : Application
+    public class LocalyticsAutoIntegrateApplication : MauiApplication
     {
-        public LocalyticsAutoIntegrateApplication(IntPtr handle, JniHandleOwnership ownerShip) : base(handle, ownerShip)
+        public LocalyticsAutoIntegrateApplication(IntPtr handle, JniHandleOwnership ownerShip)
+            : base(handle, ownerShip)
         {
         }
+
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
 
         override public void OnCreate()
         {
@@ -22,7 +23,7 @@ namespace LocalyticsSample.Android
 			localytics.LoggingEnabled = true;
 #endif
 
-            Localytics.AutoIntegrate(this);
+            LocalyticsXamarin.Android.Localytics.AutoIntegrate(this);
 
         }
     }

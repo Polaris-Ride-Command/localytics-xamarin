@@ -5,13 +5,25 @@
     <OutputType>Exe</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
     <SupportedOSPlatformVersion>15.2</SupportedOSPlatformVersion>
+
+    <!-- Display name -->
+    <ApplicationTitle>Localytics Sample</ApplicationTitle>
+
+    <!-- App Identifier -->
+	<ApplicationId>com.localytics.xamarin.sample</ApplicationId>
+
+	<!-- Versions -->
+	<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+	<ApplicationVersion>1</ApplicationVersion>
+
+	<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.2</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
     <CreatePackage>false</CreatePackage>
     <CodesignProvision>Automatic</CodesignProvision>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchLink>None</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <WarningLevel>4</WarningLevel>
@@ -19,7 +31,6 @@
   <ItemGroup>
     <None Remove="LocalyticsXamarin.Common" />
     <None Remove="LocalyticsXamarin.iOS" />
-    <None Remove="Microsoft.Extensions.Logging" />
     <None Remove="Microsoft.Extensions.Logging.Debug" />
   </ItemGroup>
   <ItemGroup>
@@ -34,17 +45,31 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <InterfaceDefinition Update="Resources\LaunchScreen.storyboard">
+      <Link>Resources\LaunchScreen.storyboard</Link>
+    </InterfaceDefinition>
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Default-Portrait%402x.png">
       <Link>Resources\Default-Portrait%402x.png</Link>
     </BundleResource>
     <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-76%402x.png">
       <Link>Resources\Icon-76%402x.png</Link>
     </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-Small.png">
+      <Link>Resources\Icon-Small.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Default-Portrait.png">
+      <Link>Resources\Default-Portrait.png</Link>
+    </BundleResource>
     <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-60%403x.png">
       <Link>Resources\Icon-60%403x.png</Link>
     </BundleResource>
     <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Default%402x.png">
       <Link>Resources\Default%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-76.png">
+      <Link>Resources\Icon-76.png</Link>
     </BundleResource>
     <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-Small-40%402x.png">
       <Link>Resources\Icon-Small-40%402x.png</Link>
@@ -60,6 +85,12 @@
     </BundleResource>
     <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-Small%403x.png">
       <Link>Resources\Icon-Small%403x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Default.png">
+      <Link>Resources\Default.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-Small-40.png">
+      <Link>Resources\Icon-Small-40.png</Link>
     </BundleResource>
     <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\Icon-Small%402x.png">
       <Link>Resources\Icon-Small%402x.png</Link>
