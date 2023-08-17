@@ -28,6 +28,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+    <CreatePackage>true</CreatePackage>
+    <CodesignProvision>Tom S Wildcard PP</CodesignProvision>
+    <CodesignKey>Apple Development: Tom Soderling (YYLKBY6QQ9)</CodesignKey>
+    <MtouchLink>SdkOnly</MtouchLink>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="LocalyticsXamarin.Common" />
     <None Remove="LocalyticsXamarin.iOS" />
@@ -35,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="LocalyticsXamarin.Common">
-      <HintPath>..\LocalyticsXamarin.Common\bin\Debug\netstandard2.1\LocalyticsXamarin.Common.dll</HintPath>
+      <HintPath>..\LocalyticsXamarin.Common\bin\Release\netstandard2.1\LocalyticsXamarin.Common.dll</HintPath>
     </Reference>
     <Reference Include="LocalyticsXamarin.iOS">
-      <HintPath>..\LocalyticsXamarin.iOS\bin\Debug\net7.0-ios\LocalyticsXamarin.iOS.dll</HintPath>
+      <HintPath>..\LocalyticsXamarin.iOS\bin\Release\net7.0-ios\LocalyticsXamarin.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
